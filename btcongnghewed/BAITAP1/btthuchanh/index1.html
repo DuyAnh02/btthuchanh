@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #menu-center {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    #left {
+        display: flex;
+        width: 250px;
+        justify-content: space-around;
+    }
+    
+    #right {
+        display: flex;
+        width: 400px;
+    }
+    
+    #center {
+        margin: 10px;
+    }
+    
+    #right {
+        align-items: center;
+        width: 205px;
+        height: 40px;
+    }
+    
+    .leftiem {
+        color: #87898d;
+    }
+    #header {
+    padding: 1% 0;
+}
+
+#header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-nav a {
+    color: #5F656F;
+    padding: 1rem 1rem;
+    text-transform: capitalize;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.option-cart span {
+    color: #5F656F;
+    padding: 1rem 0;
+    text-transform: capitalize;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+#header .options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-control {
+    height: 40px;
+    width: 205px;
+    border-radius: .5rem;
+    border: .1rem solid #5F656F;
+    padding-left: 2rem;
+}
+
+.image {
+    position: relative;
+}
+
+.image img {
+    width: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.banner-text {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+}
+
+.banner-text .heading {
+    margin-bottom: 1rem;
+}
+
+.banner-text .heading h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #323842;
+}
+
+.desc p {
+    color: #5F656F;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.center {
+    margin: 2.5rem 0;
+}
+
+.center .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 1rem 3rem;
+    color: #459D7A;
+    /* border-radius: .5rem; */
+}
+
+.navbar a:nth-child(2) {
+    border-right: .1rem solid #cccccc;
+}
+
+.navbar a:hover {
+    background-color: #459D7A;
+    color: #ffffff;
+}
+
+.active {
+    background-color: #459D7A;
+    color: #fff !important;
+}
+
+.navbar-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option-search-navbar {
+    margin-right: 1rem;
+}
+
+.option-search-navbar .form-control {
+    all: unset;
+    border-bottom: .1rem solid #cccccc;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.sort-by {
+    height: 50px;
+    width: 120px;
+    line-height: 50px;
+    background-color: #F3F4F6;
+    border-radius: .5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.sort-by span {
+    color: #a7aaaf;
+    font-weight: 500;
+}
+
+.box-list {
+    --f-columns: 4;
+    --f-gap: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(-1 * var(--f-gap));
+    margin-bottom: calc(-1 * var(--f-gap));
+    margin-top: 3.2rem;
+}
+
+.box-content {
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.box-item {
+    margin-left: var(--f-gap);
+    margin-bottom: var(--f-gap);
+    width: calc((100% / var(--f-columns) - var(--f-gap)));
+    /* background-color: #fafafb; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.box-item img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.box-text {
+    margin: 1rem 0 2rem 0;
+}
+
+.box-text .box-title h1 {
+    color: #323842;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.box-desc {
+    margin: .5rem 0;
+}
+
+.box-desc span {
+    color: rgba(177, 169, 177, 0.667);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.box-purchase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+
+</style>
+
+<body>
+    <div class="warrper">
+        <div class="header" id="header">
+          <div class="container">
+            <nav class="menu-nav">
+              <a href="#">Shop</a>
+              <a href="#">Offers</a>
+              <a href="#">our story</a>
+              <a href="#">Blog</a>
+            </nav>
+            <div class="logo">
+              <a href="#">
+                <img src="1_ProductListing/logo.png" alt="" />
+              </a>
+            </div>
+            <div class="options">
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Amount (to the nearest dollar)"
+                  placeholder="Search product"
+                />
+              </div>
+              <div class="option-cart">
+                <span><i class="bi bi-minecart"></i> Cart (0)</span>
+              </div>
+              <div class="option-user">
+                <i class="bi bi-person"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="banner">
+          <div class="image">
+            <img src="1_ProductListing/Image 1.png" alt="" />
+        </div>
+        <div class="banner-text">
+          <div class="heading">
+            <h1>Gift for your skin</h1>
+          </div>
+          <div class="desc">
+            <p>
+              Aliquip fugiat ipsum nostrud ex et eu incididunt quis minim dolore
+              excepteur voluptate
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <div class="container">
+          <nav class="navbar">
+            <a class="active" href="#">All Products</a>
+            <a href="#">Face</a>
+            <a href="#">Body</a>
+          </nav>
+          <div class="navbar-options">
+            <div class="option-search option-search-navbar">
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Amount (to the nearest dollar)"
+                placeholder="Search product"
+              />
+            </div>
+            <div class="sort-by">
+              <span>Sort by</span>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="box-list">
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (1).png" alt="" />
+              </div>
+              <div class="best-seller">
+                <span>Best-seller</span>
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$32 <span>$42</span></h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (2).png" alt="" />
+              </div>
+              <div class="best-seller">
+                <span>Best-seller</span>
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$22 <span>$28</span></h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (3).png" alt="" />
+              </div>
+              <div class="best-seller">
+                <span>Best-seller</span>
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$18 <span>$26</span></h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (4).png" alt="" />
+              </div>
+              <div class="best-seller">
+                <span>Best-seller</span>
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$48 <span>$56</span></h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (5).png" alt="" />
+              </div>
+              <div class="best-seller">
+                <span>Best-seller</span>
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$31</h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (6).png" alt="" />
+              </div>
+              <div class="best-seller">
+                <span>New</span>
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$40 <span>$48</span></h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (7).png" alt="" />
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$26</h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (8).png" alt="" />
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$18</h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (9).png" alt="" />
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$52</h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (10).png" alt="" />
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$47 <span>$42</span></h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (11).png" alt="" />
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$44</h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-item">
+              <div class="img">
+                <img src="1_ProductListing/Image 1 (12).png" alt="" />
+              </div>
+              <div class="box-content">
+                <div class="box-text">
+                  <div class="box-title">
+                    <h1>Product title</h1>
+                  </div>
+                  <div class="box-desc">
+                    <span>Labore sint ipsum dolore molllit</span>
+                  </div>
+                </div>
+                <div class="box-purchase">
+                  <div class="salary">
+                    <h1>$32 <span>$42</span></h1>
+                  </div>
+                  <div class="purchase">
+                    <i class="bi bi-minecart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+  </body>
+</html>
